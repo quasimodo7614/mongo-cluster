@@ -9,8 +9,7 @@ do
       echo "mongodb not running"
       sleep 1
   else
-     result=$(echo $h | grep "\-0$")
-     if [ -n "$result" ]; then
+     if [ "$h" = "mongo-cluster-0" ]; then
        echo "mongodb master running!"
        mongo --eval 'rs.initiate({_id: "MainRepSet", version: 1, members: [
          { _id: 0, host : "mongo-cluster-0.mongo-cluster:27017" },
@@ -23,4 +22,3 @@ do
      exit 0
    fi
 done
-
