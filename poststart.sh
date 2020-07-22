@@ -15,8 +15,8 @@ do
        echo "mongodb master running!"
        mongo --eval 'rs.initiate({_id: "MainRepSet", version: 1, members: [
          { _id: 0, host : "mongo-cluster-0.mongo-cluster:27017" },
-         { _id: 1, host : "mongo-cluster-0.mongo-cluster:27017" },
-         { _id: 2, host : "mongo-cluster-0.mongo-cluster:27017" }
+         { _id: 1, host : "mongo-cluster-1.mongo-cluster:27017" },
+         { _id: 2, host : "mongo-cluster-2.mongo-cluster:27017" }
         ]});'
        exit 1
      fi
