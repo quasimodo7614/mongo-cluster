@@ -17,7 +17,7 @@ do
          { _id: 1, host : "mongo-cluster-1.mongo-cluster:27017" },
          { _id: 2, host : "mongo-cluster-2.mongo-cluster:27017" }
         ]});'
-       exit 1
+       exit 0
      fi
      echo "not master, do nothing"
      exit 0
