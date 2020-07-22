@@ -1,12 +1,11 @@
 #!/bin/sh
+set -e
 h=`hostname`
 while :
 do
-  mongo --eval "db.stats()"
-
-  RESULT=$?   # returns 0 if mongo eval succeeds
-
-  if [ $RESULT -ne 0 ]; then
+  RESULT=`ps -ef | grep "mongod" | grep -v "grep" | awk '{print $2}'`
+  echo "result is: $RESULT"
+  if [ -z $RESULT ]; then
       echo "mongodb not running"
       sleep 1
   else
@@ -24,5 +23,4 @@ do
      exit 0
    fi
 done
-
 
