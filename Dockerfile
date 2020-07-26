@@ -1,5 +1,8 @@
 FROM mongo:3.4
 
-copy ./poststart.sh /
+copy ./poststart.sh /usr/local/bin/poststart.sh
+RUN chmod a+x /usr/local/bin/poststart.sh
+copy ./start.sh /usr/local/bin/start.sh
+RUN chmod a+x /usr/local/bin/start.sh
 
-RUN chmod a+x /poststart.sh
+CMD ["sh","/usr/local/bin/start.sh"]
